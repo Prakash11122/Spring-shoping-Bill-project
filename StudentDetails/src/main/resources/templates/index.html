@@ -1,0 +1,91 @@
+ <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<title>Home page</title>
+</head>
+<body>
+
+<!-- Navbar -->
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">STUDENT DETAILS</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">HOME
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="addstd">ADD
+					STUDENT</a></li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Navbar -->
+	
+	
+	<div th:if=${session.msg}>
+		<div class="alert alert-success" role="alert" th:text="${session.msg}">
+		</div>
+		<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+	</div>
+
+	<div class="container p-5">
+		<table class="table table-striped" border="1">
+			<thead class="bg-primary text-white">
+				<tr>
+				     <th scope="col">id</th>
+					<th scope="col">Name</th>
+					<th scope="col">regnumber</th>
+					<th scope="col">Address</th>
+					<th scope="col">Email</th>
+					<th scope="col">Phone No</th>
+					<th scope="col">sub1</th>
+					<th scope="col">sub2</th>
+					<th scope="col">sub3</th>
+					<th scope="col">sub4</th>
+					<th scope="col">total</th>
+					<th scope="col">percentage</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${emp}">
+					<th th:text="${e.id}">1</th>
+					<td th:text="${e.Name}"></td>
+					<td th:text="${e.regnumber}"></td>
+					<td th:text="${e.Address}"></td>
+					<td th:text="${e.Email}"></td>
+					<td th:text="${e.Phone}"></td>
+					<td th:text="${e.sub1}"></td>
+					<td th:text="${e.sub2}"></td>
+					<td th:text="${e.sub3}"></td>
+					<td th:text="${e.sub4}"></td>
+					<td th:text="${e.total}"></td>
+					<td th:text="${e.percentage}"></td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>  
